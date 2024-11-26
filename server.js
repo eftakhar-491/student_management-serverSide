@@ -55,6 +55,7 @@ async function showSingleStudent(req, res) {
   const id = req.params.uid;
   const studentCollection = await run();
   const quary = { id: parseInt(id) };
+  console.log(quary);
 
   const result = await studentCollection.findOne(quary);
   res.send(result);
@@ -75,6 +76,8 @@ async function studentDelete(req, res) {
 async function studentUpdate(req, res) {
   const id = req.params.uid;
   const data = req.body;
+  console.log("79", data);
+  // delete data._id;
   const studentCollection = await run();
   const filter = { id: parseInt(id) };
   const updateData = {
@@ -84,5 +87,5 @@ async function studentUpdate(req, res) {
 
   // const result = await studentCollection.deleteOne(quary);
 
-  res.send(result);
+  res.send(data);
 }
